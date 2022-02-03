@@ -5,15 +5,32 @@ body {
 }
 
 /* Style buttons */
-.note-btn {
-  background-color: rgba(30, 143, 255, 0); /* Blue background */
+.note-btn,
+.btnHeaderTableDeleteOll,
+.btnHeaderTableArchiveOll
+{
+  background-color: rgba(255, 255, 255, 0); /* Blue background */
   border: none; /* Remove borders */
-  color: rgb(53, 52, 52); /* White text */
+  color: rgb(255, 255, 255); /* White text */
   margin: 2px;
   font-size: 25px; /* Set a font size */
   cursor: pointer; /* Mouse pointer on hover */
   border-radius: 5%;
 }
+
+.btnTableDelete,
+.btnTableArchive,
+.btnTableRedact {
+  background-color: rgba(255, 255, 255, 0); /* Blue background */
+  border: none; /* Remove borders */
+  color: rgb(121, 121, 122); /* White text */
+  margin: 2px;
+  font-size: 25px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  border-radius: 5%;
+}
+
+
 
 header form {
   display: flex;
@@ -39,20 +56,20 @@ form textarea {
   font-size: 1.3rem;
 }
 
-form button {
-  background-color: orange;
+.add-btn {
+  background-color: #ffa500;
   font-size: 1.6rem;
   cursor: pointer;
   transition: all 0.5s;
 }
 
-form button:hover {
-  background-color: orangered;
+.add-btn:hover {
+  background-color: #ff4500;
 }
 
 .notes {
   padding: 1rem;
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 5px;
   margin: 1rem 0;
 }
@@ -80,8 +97,14 @@ table td{
 }
 td:first-child {
   width: 30px;
+  text-align: center;
+  height: 30px;
 }
+
 .content td:last-child {
   width: 125px;
 }
 
+.lasHeaderTh {
+  text-align: right;
+}
