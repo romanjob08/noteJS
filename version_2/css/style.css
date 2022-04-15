@@ -6,8 +6,8 @@ body {
 
 /* Style buttons */
 .note-btn,
-.btnHeaderTableDeleteOll,
-.btnHeaderTableArchiveOll
+.btnHeaderTableDeleteAll,
+.btnHeaderTableArchiveAll
 {
   background-color: rgba(255, 255, 255, 0); /* Blue background */
   border: none; /* Remove borders */
@@ -99,6 +99,14 @@ td:first-child {
   width: 30px;
   text-align: center;
   height: 30px;
+}
+
+.contCl {
+  max-width: 120px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
 }
 
 .content td:last-child {
