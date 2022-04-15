@@ -47,12 +47,17 @@ export const imageShoppingCart = "fa fa-shopping-cart";
 export const imageLightBulb = "fa fa-lightbulb-o";
 export const imageExclamation = "fa fa-exclamation-circle";
 
-export const getDateFromItemContent = (content) => {
+export const getDateFromText = (content) => {
     const regExp = /(3[01]|[12][0-9]|0?[1-9])\/(1[0-2]|0?[1-9])\/\d{4}/g;
     const dates = content.match(regExp);
     if (dates && dates.length) {
+        console.log(dates.join(', '))
         return dates.join(', ');
     } else {
         return null;
     }
+}
+
+export const randomID = () => {
+    return "id" + Math.random().toString(16).slice(2);
 }
