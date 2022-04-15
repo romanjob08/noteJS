@@ -2,7 +2,7 @@ import {iCreator} from "../../../NotesConstants/constantsProj";
 import {catName} from "../../../NotesData/tableStateData";
 
 export const tableStatusBody = () => {
-    return catName.map((e) => {
+    return catName().map((e) => {
             const statusTrCreator = document.createElement('tr');
             statusTrCreator.append(
                 firstTd(e.imageCat),
