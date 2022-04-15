@@ -1,5 +1,5 @@
 import {createNotes} from "./notesCreator";
 
-export const notesRender = () => {
-    return document.querySelector('.container1').append(createNotes())
+export const notesRender = (tableName) => {
+    return document.querySelector('.container1').append(createNotes(tableName))
 };
