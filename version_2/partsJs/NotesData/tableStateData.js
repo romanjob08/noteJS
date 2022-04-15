@@ -1,30 +1,58 @@
 import {notesData} from "./notesData";
+import {statusRender} from "../Render/statusRender/statusRender";
+import {notesRender} from "../Render/notesRender/notesRender";
 
-const numActTask = notesData.filter(e => e.category === 'Task' && e.active === true && e.archived === false);
-const numActRandTh = notesData.filter(e => e.category === 'Random Thought' && e.active === true && e.archived === false);
-const numActIdea = notesData.filter(e => e.category === 'Idea' && e.active === true && e.archived === false);
-const numArchTask = notesData.filter(e => e.category === 'Task' && e.active === false && e.archived === true);
-const numArchRandTh = notesData.filter(e => e.category === 'Random Thought' && e.active === false && e.archived === true);
-const numArchIdea = notesData.filter(e => e.category === 'Idea' && e.active === false && e.archived === true);
+export const rerenderTableStat = () => {
+    document.querySelector('.statisticTable').remove();
+    statusRender()
+}
 
-export const catName = [
+export const rerenderNotes = () => {
+    document.getElementById('tabCont!notes').remove();
+    document.getElementById('tabCont!archive').remove();
+    notesRender(TableNames.NOTES)
+    notesRender(TableNames.ARCHIVE)
+}
+
+export const rerenderPage = () => {
+    rerenderNotes()
+    rerenderTableStat()
+}
+
+export const TableNames = {
+    ARCHIVE: 'archive',
+    NOTES: 'notes'
+}
+
+const numTasks = (namCat, tableName) => {
+    if (tableName === TableNames.NOTES) {
+        return notesData
+            .filter(e => e.category === namCat && e.active).length
+    } else {
+        return notesData
+            .filter(e => e.category === namCat && !e.active).length
+    }
+}
+
+export const catName = () => {
+    return[
     {
         imageCat: 'fa fa-shopping-cart',
         nameCat: 'Task',
-        active: numActTask.length,
-        archived: numArchTask.length
+        active: numTasks('Task', TableNames.NOTES),
+        archived:  numTasks('Task', TableNames.ARCHIVE)
     },
     {
         imageCat: 'fa fa-exclamation-circle',
         nameCat: 'Random Thought',
-        active: numActRandTh.length,
-        archived: numArchRandTh.length
+        active: numTasks('Random Thought', TableNames.NOTES),
+        archived:  numTasks('Random Thought', TableNames.ARCHIVE)
     },
     {
         imageCat: 'fa fa-lightbulb-o',
         nameCat: 'Idea',
-        active: numActIdea.length,
-        archived: numArchIdea.length
+        active: numTasks('Idea', TableNames.NOTES),
+        archived:  numTasks('Idea', TableNames.ARCHIVE)
     }
-];
+]};
 
