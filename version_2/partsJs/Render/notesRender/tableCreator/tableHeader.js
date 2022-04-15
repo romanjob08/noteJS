@@ -1,7 +1,9 @@
 import {categoriesNotes, createElement} from "../../../NotesConstants/constantsProj";
 import {iCreator} from "../../../NotesConstants/constantsProj";
+import {notesData} from "../../../NotesData/notesData";
+import {rerenderPage} from "../../../NotesData/tableStateData";
 
-export const tableHeader = () => {
+export const tableHeader = (tableName) => {
     const tHeadRou = document.createElement('tr')
     tHeadRou.append(
         th(),
@@ -10,7 +12,7 @@ export const tableHeader = () => {
         th(categoriesNotes.category),
         th(categoriesNotes.content),
         th(categoriesNotes.dates),
-        lastTh(),
+        lastTh(tableName),
         )
     return tHeadRou
 }
@@ -25,25 +27,58 @@ const th = (text = '') => {
     }
 };
 
-const lastTh = () => {
+const lastTh = (tableName) => {
     const laTh = createElement('th', 'lasHeaderTh')
     laTh.append(
-        btnHeaderTableArchiveOll(),
-        btnHeaderTableDeleteOll()
+        btnHeaderTableArchiveAll(tableName),
+        btnHeaderTableDeleteAll(tableName)
         )
     return laTh;
 }
 
-const btnHeaderTableDeleteOll = () => {
-    const btnHeaderTableDelOll = createElement('button', 'btnHeaderTableDeleteOll')
-    btnHeaderTableDelOll.append(iCreator('fa fa-trash'))
-    return btnHeaderTableDelOll;
+const btnHeaderTableDeleteAll = (tableName) => {
+    const btnHeaderTableDelAll = createElement('button', 'btnHeaderTableDeleteAll')
+    btnHeaderTableDelAll.append(iCreator('fa fa-trash'))
+    btnHeaderTableDelAll.addEventListener("click", () => {
+        let a;
+        if (tableName === 'notes') {
+            a = notesData.filter((e) => {
+                return !e.active})
+        } else {
+            a = notesData.filter((e) => {
+                return e.active})
+        }
+        notesData.splice(0);
+        notesData.push(...a)
+        document
+            .getElementById(tableName)
+            .querySelectorAll('.tableRou')
+            .forEach((row) =>row.remove());
+        rerenderPage()
+    })
+    return btnHeaderTableDelAll;
 }
-
-const btnHeaderTableArchiveOll = () => {
-    const btnHeaderTableArhOll = createElement('button', 'btnHeaderTableArchiveOll')
-    btnHeaderTableArhOll.append(iCreator('fa fa-archive'))
-    return btnHeaderTableArhOll;
+// All -> All
+const btnHeaderTableArchiveAll = (tableName) => {
+    const btnHeaderTableArhAll = createElement('button', 'btnHeaderTableArchiveAll')
+    btnHeaderTableArhAll.append(iCreator('fa fa-archive'))
+    btnHeaderTableArhAll.addEventListener("click", () => {
+        if (tableName === 'archive') {
+            notesData.forEach((e) => {
+                e.active = true
+                e.archived = false
+            });
+        } else {
+            notesData.forEach((e) => {
+                e.active = false
+                e.archived = true
+            });
+        }
+        document
+            .getElementById(tableName)
+            .querySelectorAll('.tableRou')
+            .forEach((row) =>row.remove());
+        rerenderPage()
+    })
+    return btnHeaderTableArhAll;
 }
-
-
