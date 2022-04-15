@@ -1,7 +1,6 @@
-import {categoriesState, dataAdd} from "../../NotesConstants/constantsProj";
+import {categoriesState} from "../../NotesConstants/constantsProj";
 import {createElement} from "../../NotesConstants/constantsProj";
-import {notesData} from "../../NotesData/notesData";
-import {notesRender} from "../notesRender/notesRender";
+import {createHeaderBtnAdd} from "./buttonAdd";
 
 export const crateHeader = () => {
     const h1 = createElement('h1', 'h1');
@@ -33,74 +32,13 @@ const inputCreator = () => {
     const inputForHeader = document.createElement('input');
     inputForHeader.setAttribute('type', 'text');
     inputForHeader.setAttribute('id', 'note-title');
-    inputForHeader.setAttribute('placeholder', 'Note name');
+    inputForHeader.setAttribute('placeholder', 'Give a name to your note');
     return inputForHeader;
 };
 
 const textareaCreator = () => {
     const textareaForHeader = createElement('textarea', 'note-text');
     textareaForHeader.setAttribute('id', 'note-text');
-    textareaForHeader.setAttribute('placeholder', "Note name");
+    textareaForHeader.setAttribute('placeholder', "Write your note");
     return textareaForHeader;
-};
-
-const createHeaderBtnAdd = () => {
-    const buttonForAdd = createElement('button', 'add-btn');
-    buttonForAdd.addEventListener('click', (e) => {
-        e.preventDefault();
-        const textValue = document.querySelector('.note-text').value;
-        const noteNameValue = document.getElementById('note-title').value;
-        const notesCategoryValue = document.querySelector('.select-header').value;
-        if (textValue === '' || noteNameValue === '') {
-            alert('Please add note title and details')
-        }else if (notesCategoryValue === 'Task'){
-            notesData.push(
-                {
-                    id: notesData.length + 1,
-                    image: 'fa fa-shopping-cart',
-                    name: noteNameValue,
-                    created: dataAdd(),
-                    category: notesCategoryValue,
-                    content: textValue,
-                    active: true,
-                    archived: false,
-                    dates: ''
-                }
-            )
-        }else if (notesCategoryValue === 'Random Thought'){
-            notesData.push(
-                {
-                    id: notesData.length + 1,
-                    image: 'fa fa-exclamation-circle',
-                    name: noteNameValue,
-                    created: dataAdd(),
-                    category: notesCategoryValue,
-                    content: textValue,
-                    active: true,
-                    archived: false,
-                    dates: ''
-                }
-            )
-        }else if (notesCategoryValue === 'Idea'){
-            notesData.push(
-                {
-                    id: notesData.length + 1,
-                    image: 'fa fa-lightbulb-o',
-                    name: noteNameValue,
-                    created: dataAdd(),
-                    category: notesCategoryValue,
-                    content: textValue,
-                    active: true,
-                    archived: false,
-                    dates: ''
-                }
-            )
-        }
-        document.querySelector('.tableContent').remove();
-        notesRender()
-        document.querySelector('.note-text').value = '';
-        document.getElementById('note-title').value = '';
-    })
-    buttonForAdd.textContent = 'Add Note'
-    return buttonForAdd;
 };
