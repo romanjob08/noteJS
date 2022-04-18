@@ -758,7 +758,7 @@ const createHeaderBtnAdd = ()=>{
     return buttonForAdd;
 };
 
-},{"../../NotesConstants/constantsProj":"7FMs6","../../NotesData/notesData":"fnf9E","../notesRender/notesRender":"bLrtb","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../../NotesData/tableStateData":"8tfuH"}],"fnf9E":[function(require,module,exports) {
+},{"../../NotesConstants/constantsProj":"7FMs6","../../NotesData/notesData":"fnf9E","../notesRender/notesRender":"bLrtb","../../NotesData/tableStateData":"8tfuH","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fnf9E":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "notesData", ()=>notesData
@@ -876,7 +876,7 @@ const notesContent = (tableName)=>{
     return notCont;
 };
 
-},{"../../NotesConstants/constantsProj":"7FMs6","./tableCreator/tableCreator":"6o0WZ","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../../NotesData/tableStateData":"8tfuH"}],"6o0WZ":[function(require,module,exports) {
+},{"../../NotesConstants/constantsProj":"7FMs6","./tableCreator/tableCreator":"6o0WZ","../../NotesData/tableStateData":"8tfuH","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6o0WZ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "tableCreator", ()=>tableCreator
@@ -955,7 +955,7 @@ const btnHeaderTableArchiveAll = (tableName)=>{
     return btnHeaderTableArhAll;
 };
 
-},{"../../../NotesConstants/constantsProj":"7FMs6","../../../NotesData/notesData":"fnf9E","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../../../NotesData/tableStateData":"8tfuH"}],"8tfuH":[function(require,module,exports) {
+},{"../../../NotesConstants/constantsProj":"7FMs6","../../../NotesData/notesData":"fnf9E","../../../NotesData/tableStateData":"8tfuH","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8tfuH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "rerenderTableStat", ()=>rerenderTableStat
@@ -1018,7 +1018,7 @@ const catName = ()=>{
     ];
 };
 
-},{"./notesData":"fnf9E","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../Render/statusRender/statusRender":"dr8ij","../Render/notesRender/notesRender":"bLrtb"}],"dr8ij":[function(require,module,exports) {
+},{"./notesData":"fnf9E","../Render/statusRender/statusRender":"dr8ij","../Render/notesRender/notesRender":"bLrtb","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"dr8ij":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "statusRender", ()=>statusRender
